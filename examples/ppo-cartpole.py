@@ -43,13 +43,9 @@ def train_ppo(outdir, parameter, value, epochs):
     steps_per_epoch = constant(4)
     entropy_coefficient = constant(0.01)
     value_coefficient = constant(1.0)
-#    clip_range = constant(0.1)
     clip_range = constant(0.2)
-#    gamma = constant(0.99)
     gamma = constant(0.98)
-#    lam = constant(0.95)
     lam = constant(1)
-#    alpha = constant(2.5e-4)
     alpha = constant(1e-3)
     optimiser = snt.optimizers.Adam(tf.Variable(next(alpha)))
 
@@ -134,7 +130,7 @@ def train_ppo(outdir, parameter, value, epochs):
 
 if __name__ == '__main__':
     arg_parser = ArgumentParser(description='Train PPO agent with set cartpole parameters')
-    arg_parser.add_argument('-o', '--outdir', type=str, default='thesis-cartpole-ppo-test',
+    arg_parser.add_argument('-o', '--outdir', type=str, default='tmp/ppo-cartpole-test',
             help='The directory to output the saved models and logs')
     arg_parser.add_argument('-p', '--parameter', type=str, default='masscart',
             help='The parameter to set')
