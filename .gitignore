@@ -2,11 +2,11 @@
 # PROJECT SPECIFIC GITIGNORE #
 ##############################
 tmp/
+*.pyc
 
 ###########################
 # GITHUB PYTHON GITIGNORE #
 ###########################
-
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
